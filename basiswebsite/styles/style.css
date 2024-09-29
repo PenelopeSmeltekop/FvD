@@ -1,0 +1,602 @@
+/**************/
+/* CSS REMEDY */
+/**************/
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+:root {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color-scheme: light dark;
+	--groen: #076264;
+	--zwart: #222;
+	--wit: #f8f8f8;
+	--roze: #e58282;
+	--navbg: light-dark(#076264, #222);
+	--btns: light-dark(#076264, #076264);
+	--font: light-dark(#076264, #f8f8f8);
+	--border: light-dark(#076264, #f8f8f8);
+	--bg: light-dark(#f8f8f8, #222);
+	--articlesbg: light-dark(#076264, #222);
+	background-color: light-dark(#f8f8f8, #222);
+	--color-theme: light-dark(#f8f8f8, #222);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--navbg: var(--zwart);
+		--btns: var(--groen);
+		--font: var(--wit);
+		--articlesbg: var(--zwart);
+		--color-theme: white;
+	}
+}
+
+
+:root:has([value="light"]:checked) {
+	color-scheme: light;
+}
+
+:root:has([value="dark"]:checked) {
+	color-scheme: dark;
+}
+
+/****************/
+/* JOUW STYLING */
+/****************/
+
+
+nav {
+	background: var(--navbg);
+	overflow: hidden;
+	position: fixed;
+	z-index: 5;
+	display: flex;
+	padding: .5rem;
+	align-items: center;
+	width: 100%;
+}
+
+nav ul {
+	display: flex;
+	padding: 0;
+	gap: 1rem;
+	margin: 0 auto;
+}
+
+nav ul li {
+	list-style-type: none;
+}
+
+nav ul li a {
+	color: var(--wit);
+	font-size: medium;
+	text-decoration: none;
+}
+
+.logo {
+	width: 3rem;
+
+}
+
+/* Main */
+main {
+	position: relative;
+	width: 100%;
+}
+
+.video-container {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+}
+
+#video {
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}
+
+.logoani {
+	width: 100%;
+
+}
+
+.pic1 {
+	width: 100%;
+	margin-top: 1rem;
+
+}
+
+fieldset {
+	border: none;
+	color: var(--wit);
+	position: absolute;
+	width: 100%;
+	display: grid;
+	justify-items: start;
+	top: 5rem;
+	z-index: 2;
+}
+
+.overlay {
+	position: absolute;
+	color: var(--wit);
+	width: 100%;
+	gap: 1rem;
+	bottom: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.overlay h1 {
+	width: 50%;
+	text-align: center;
+}
+
+.overlay button {
+	border: none;
+	background-color: var(--btns);
+	color: var(--wit);
+	width: 12rem;
+	font-size: 1rem;
+	padding: 1rem;
+	display: block;
+  margin: auto;
+}
+
+.article1 button {
+	display: grid;
+	justify-items: center;
+	margin: 0 auto;
+}
+
+.flip-container {
+	position: relative;
+	perspective: 66em;
+	width: 100%;
+	height: 18rem;
+	display: grid;
+	transform-style: preserve-3d;
+}
+
+/* voor en achter */
+.flip-container>div {
+	grid-row-start: 1;
+	grid-column-start: 1;
+	backface-visibility: hidden;
+	transition: 1s;
+}
+
+/* voor */
+.flip-container .flip-image {
+	background-color: var(--wit);
+}
+
+.flip-container .flip-image img {
+	width: 55%;
+}
+
+
+/* achter */
+.flip-container .text-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--groen);
+	color: var(--wit);
+	padding: 1rem;
+	rotate: Y 180deg;
+}
+
+.text-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.flip-container .flip-image.rotate {
+	rotate: Y 180deg;
+}
+
+.flip-container .text-container.rotate {
+	rotate: Y 360deg;
+}
+
+.article1 {
+	color: var(--font);
+	text-align: center;
+	padding: 1rem;
+	font-weight: bold;
+}
+
+.article1 li img {
+	width: 3rem;
+}
+
+.article1 h2 {
+	color: var(--roze);
+	text-align: center;
+}
+
+.article1 h3 {
+	font-size: xx-large;
+	margin-bottom: 1rem;
+}
+
+.article1 li {
+	text-align: left;
+	padding-bottom: 1rem;
+	list-style-type: none;
+}
+
+.arrow img {
+	width: 2rem;
+
+}
+
+.article2 {
+	color: var(--font);
+	text-align: center;
+	padding: 2rem;
+}
+
+.article2 h1 {
+	color: var(--roze);
+	font-size: large;
+}
+
+.community h2 {
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+.community p {
+	z-index: 99;
+	text-align: center;
+	margin: 1rem;
+}
+
+.community img {
+	width: 3rem;
+	animation: draaien 4s;
+	animation-iteration-count: infinite;
+}
+
+.community h1 {
+	color: var(--roze);
+	font-size: large;
+	text-align: center;
+	margin-top: 1rem;
+}
+
+.community ul li {
+	list-style-type: none;
+}
+
+.community {
+	padding: 1rem;
+	color: var(--font);
+	align-content: center;
+}
+
+.community button {
+	border: solid;
+	border-color: var(--border);
+	background-color: var(--bg);
+	color: var(--font);
+	width: 12rem;
+	font-size: 1rem;
+	padding: 1rem;
+	display: block;
+  margin: auto;
+}
+
+@keyframes draaien {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.app h3 {
+	font-size: x-large;
+	padding: 1rem;
+}
+
+.app {
+	color: var(--wit);
+	background-color: var(--articlesbg);
+	text-align: center;
+	padding: 2rem;
+}
+
+.app button {
+	border: solid;
+	border-color: var(--wit);
+	background-color: var(--articlesbg);
+	color: var(--wit);
+	width: 12rem;
+	font-size: 1rem;
+	padding: 1rem;
+	display: block;
+  margin: auto;
+}
+
+.app p {
+	margin-bottom: 1rem;
+}
+
+.app img {
+	animation: zoom 10s;
+	animation-iteration-count: infinite;
+	width: 20%;
+}
+
+@keyframes zoom {
+	0% {
+		scale: 10;
+	}
+
+	50% {
+		scale: 20;
+	}
+
+	100% {
+		scale: 10;
+	}
+}
+
+.stappen {
+	background-color: var(--articlesbg);
+	color: var(--wit);
+	text-align: center;
+}
+
+.stappen li {
+	list-style-type: none;
+	margin: 1rem;
+}
+
+.stappen h2 {
+	margin-bottom: 1rem;
+	font-size: large;
+	color: #d4e07b;
+}
+
+.stappen h3 {
+	font-size: x-large;
+	margin: 1rem;
+}
+
+.stappen img {
+	width: 20rem;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+}
+
+.stappen button {
+	border: solid;
+	border-color: var(--wit);
+	background-color: var(--articlesbg);
+	color: var(--wit);
+	width: 12rem;
+	font-size: 1rem;
+	padding: 1rem;
+	margin: 1rem;
+}
+
+.pic2 {
+	width: 100%;
+}
+
+.bedrijfsoplossingen {
+	text-align: center;
+	color: var(--font);
+}
+
+.bedrijfsoplossingen li {
+	border: solid;
+	border-color: var(--border);
+	background-color: var(--bg);
+	margin: 1rem;
+	list-style-type: none;
+	padding: 1rem;
+}
+
+.bedrijfsoplossingen a {
+	text-decoration: none;
+	color: var(--font);
+}
+
+.bedrijfsoplossingen p {
+	margin-bottom: 1rem;
+}
+
+.bedrijfsoplossingen h2 {
+	margin: 1rem;
+	font-size: x-large;
+}
+
+.bedrijfsoplossingen h3 {
+	font-size: large;
+	font-weight: bold;
+}
+
+.bedrijfsoplossingen img {
+	width: 20rem;
+}
+
+.bedrijfsoplossingen button {
+	border: solid;
+	border-color: var(--border);
+	background-color: var(--bg);
+	color: var(--font);
+	width: 12rem;
+	font-size: 1rem;
+	padding: 1rem;
+	margin: 1rem;
+}
+
+.slides {
+	width: 100%;
+
+}
+
+#article2 {
+	font-size: medium;
+	color: var(--font);
+	padding: 1rem;
+	font-weight: bold;
+	text-align: center;
+}
+
+#article2 button {
+	border: solid;
+	border-color: var(--border);
+	background-color: var(--bg);
+	color: var(--font);
+	width: 12rem;
+	font-size: 1rem;
+	padding: 1rem;
+	margin: 1rem;
+}
+
+.article01 h2 {
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+.article01 {
+	color: var(--font);
+	padding: 1rem;
+}
+
+.article01 img {
+	width: 7rem;
+	margin: 1rem;
+}
+
+.rapportage img {
+	width: 100%;
+}
+
+.rapportage h2 {
+	margin-bottom: 1rem;
+	color: var(--font);
+}
+
+.rapportage {
+	text-align: center;
+	color: var(--font);
+	margin: 1rem;
+}
+
+.rapportage button {
+	border: solid;
+	border-color: var(--border);
+	background-color: var(--bg);
+	color: var(--font);
+	width: 12rem;
+	font-size: 1rem;
+	padding: 1rem;
+	margin: 1rem;
+}
+
+#container {
+	width: 100%;
+	height: 2.5rem;
+	position: relative;
+	overflow: hidden;
+	white-space: nowrap;
+	color: var(--font);
+	font-weight: bold;
+}
+
+#container .scroll {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	width: fit-content;
+	white-space: nowrap;
+	animation: loop 30s linear infinite;
+}
+
+@keyframes loop {
+	0% {
+		transform: translateX(0%);
+	}
+
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+.item {
+	display: flex;
+	align-items: center;
+	gap: 0 0.2rem;
+	font-size: .9rem;
+	padding: 0.7rem 1rem;
+	margin: 0rem 1rem;
+	border-radius: 0.4rem;
+	white-space: nowrap;
+}
+
+footer img {
+	width: 100%;
+	height: 100%;
+}
+
+footer {
+	background: var(--navbg);
+	overflow: hidden;
+	z-index: 5;
+	padding: .5rem;
+	width: 100%;
+}
+
+footer ul {
+	display: flex;
+	padding: 0;
+	gap: 1rem;
+}
+
+footer ul li {
+	list-style-type: none;
+
+}
+
+footer ul li a {
+	color: var(--wit);
+	font-size: medium;
+	text-decoration: none;
+}
+
+.fa {
+	padding: 1rem;
+	text-align: center;
+	margin: 1rem;
+	color: var(--wit);
+}
+
+
+.zoom {
+	width: 100%;
+	height: 20rem;
+	overflow: hidden;
+}
